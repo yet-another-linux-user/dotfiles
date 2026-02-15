@@ -1,15 +1,40 @@
 * {
-    bg-col:  #1e1e2e;
-    bg-col-light: #1e1e2e;
-    border-col: #1e1e2e;
-    selected-col: #1e1e2e;
+    /* --- Bảng màu Catppuccin Mocha --- */
+    rosewater: #f5e0dc;
+    flamingo: #f2cdcd;
+    pink: #f5c2e7;
+    mauve: #cba6f7;
+    red: #f38ba8;
+    maroon: #eba0ac;
+    peach: #fab387;
+    yellow: #f9e2af;
+    green: #a6e3a1;
+    teal: #94e2d5;
+    sky: #89dceb;
+    sapphire: #74c7ec;
     blue: #89b4fa;
-    fg-col: #cdd6f4;
-    fg-col2: #f38ba8;
-    grey: #6c7086;
+    lavender: #b4befe;
+    text: #cdd6f4;
+    subtext1: #bac2de;
+    subtext0: #a6adc8;
+    overlay2: #9399b2;
+    overlay1: #7f849c;
+    overlay0: #6c7086;
+    surface2: #585b70;
+    surface1: #45475a;
+    surface0: #313244;
+    base: #1e1e2e;
+    mantle: #181825;
+    crust: #11111b;
 
+    /* --- Cấu hình chung --- */
     width: 450px;
     font: "Hack Nerd Font 14";
+    
+    /* Gán màu tím (Mauve) làm màu chủ đạo */
+    background-color: @base;
+    text-color: @text;
+    border-color: @mauve; /* Viền cửa sổ màu tím */
 }
 
 element-text, element-icon , mode-switcher {
@@ -21,25 +46,25 @@ window {
     height: 500px;
     border: 3px;
     border-radius: 15px;
-    border-color: @border-col;
-    background-color: @bg-col;
+    border-color: @border-color;
+    background-color: @base;
 }
 
 mainbox {
-    background-color: @bg-col;
+    background-color: @base;
 }
 
 inputbar {
     children: [prompt,entry];
-    background-color: @bg-col;
+    background-color: @base;
     border-radius: 15px;
     padding: 2px;
 }
 
 prompt {
-    background-color: @blue;
+    background-color: @mauve; /* Nền của chữ 'Apps/Run' màu tím */
     padding: 6px;
-    text-color: @bg-col;
+    text-color: @base;        /* Chữ màu tối để tương phản với nền tím */
     border-radius: 15px;
     margin: 20px 0px 0px 20px;
 }
@@ -52,8 +77,10 @@ textbox-prompt-colon {
 entry {
     padding: 6px;
     margin: 20px 0px 0px 10px;
-    text-color: @fg-col;
-    background-color: @bg-col;
+    text-color: @text;
+    background-color: @base;
+    placeholder: "Search...";
+    placeholder-color: @overlay0;
 }
 
 listview {
@@ -62,22 +89,30 @@ listview {
     margin: 10px 0px 0px 20px;
     columns: 1;
     lines: 10;
-    background-color: @bg-col;
+    background-color: @base;
 }
 
 element {
     padding: 5px;
-    background-color: @bg-col;
-    text-color: @fg-col  ;
+    background-color: @base;
+    text-color: @subtext1;
 }
 
 element-icon {
     size: 25px;
 }
 
+/* --- Trạng thái đang chọn (Selected) --- */
 element selected {
-    background-color:  @selected-col;
-    text-color: @fg-col2;
+    background-color: @surface1; /* Nền xám nhẹ khi chọn */
+    text-color: @mauve;          /* Chữ chuyển sang màu tím phát sáng */
+    border-radius: 10px;
+}
+
+/* Có thể thêm trạng thái active nếu muốn highlight thêm */
+element-icon selected {
+    background-color: inherit;
+    text-color: inherit;
 }
 
 mode-switcher {
@@ -86,15 +121,13 @@ mode-switcher {
 
 button {
     padding: 10px;
-    background-color: @bg-col-light;
-    text-color: @grey;
+    background-color: @surface0;
+    text-color: @overlay1;
     vertical-align: 0.5; 
     horizontal-align: 0.5;
 }
 
 button selected {
-  background-color: @bg-col;
-  text-color: @blue;
+  background-color: @base;
+  text-color: @mauve; /* Nút chế độ (Apps/Run) khi chọn sẽ màu tím */
 }
-
-/* vim:ft=css
