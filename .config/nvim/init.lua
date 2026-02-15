@@ -24,6 +24,14 @@ require("lazy").setup({
     end
   },
 
+  -- Colorizer ---
+  {
+	  "norcalli/nvim-colorizer.lua",
+	  config = function()
+		  require("colorizer").setup()
+	end
+},
+
   -- Status Line (Lualine)
   {
     'nvim-lualine/lualine.nvim',
@@ -44,3 +52,4 @@ require("lazy").setup({
 vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.relativenumber = true
+

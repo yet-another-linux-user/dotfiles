@@ -1,4 +1,5 @@
 exec autotiling
+exec waybar &
 
 include catppuccin-mocha
 
@@ -68,6 +69,7 @@ output * bg /home/thinh/Pictures/Backgrounds/catppuccin-rainbow-arch.png fill
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+    bindsym CTRL+ALT+W exec ~/scripts/wbrestart.sh
 
     # Kill focused window
     bindsym $mod+q kill
@@ -84,8 +86,7 @@ output * bg /home/thinh/Pictures/Backgrounds/catppuccin-rainbow-arch.png fill
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
-
+    bindsym $mod+Shift+c reload; exec ~/scripts/wbrestart.sh
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
@@ -213,31 +214,5 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
     bindsym Print exec grim
-
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-
-    
-    colors {
-    background         $base
-    statusline         $text
-    focused_statusline $text
-    focused_separator  $base
-
-    # target           border bg        text
-    focused_workspace  $base  $mauve    $crust
-    active_workspace   $base  $surface2 $text
-    inactive_workspace $base  $base     $text
-    urgent_workspace   $base  $red      $crust
-           }
-}
 
 include /etc/sway/config.d/*
