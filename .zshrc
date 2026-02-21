@@ -80,9 +80,14 @@ alias la='ls -la --color'
 alias ps='sudo pacman -S'
 alias s='sudo'
 
+alias tp='trash-put'
+alias tls='trash-list'
+alias tres='trash-restore'
+alias temp='trash-empty'
+
 # Shell integrations
 eval "$(fzf --zsh)"
 # eval "$(zoxide init --cmd cd zsh)"
 #
-fortune | cowsay | lolcat
+# fortune | cowsay | lolcat
 

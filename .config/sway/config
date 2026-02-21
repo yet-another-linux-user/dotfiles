@@ -70,6 +70,7 @@ output * bg /home/thinh/Pictures/Backgrounds/catppuccin-rainbow-arch.png fill
     # Start a terminal
     bindsym $mod+Return exec $term
     bindsym CTRL+ALT+W exec ~/scripts/wbrestart.sh
+    bindsym $mod+Shift+S exec sway-screenshot -m region --clipboard-only
 
     # Kill focused window
     bindsym $mod+q kill
