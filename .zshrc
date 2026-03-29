@@ -91,3 +91,4 @@ eval "$(fzf --zsh)"
 #
 # fortune | cowsay | lolcat
 
+export PATH="$HOME/.local/bin:$PATH"
