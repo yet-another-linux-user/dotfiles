@@ -1,5 +1,6 @@
 exec autotiling
 exec waybar &
+exec fcitx5 -d
 
 include catppuccin-mocha
 
