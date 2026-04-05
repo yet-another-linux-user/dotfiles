@@ -79,6 +79,8 @@ alias c='clear'
 alias la='ls -la --color'
 alias ps='sudo pacman -S'
 alias s='sudo'
+alias ll='grc ls -la'
+alias ping='grc ping'
 
 alias tp='trash-put'
 alias tls='trash-list'
